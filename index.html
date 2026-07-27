@@ -24,11 +24,30 @@
 <main id="top">
 
   <section class="hero">
-    <p class="eyebrow" data-pl="Katowice · ul. Staromiejska 6" data-en="Katowice · Staromiejska 6"></p>
-    <h1 data-pl="Biurko na wynajem" data-en="A desk for rent"></h1>
-    <p class="lede" data-pl="Coworking w ścisłym centrum Katowic — spokojne, ciche biuro, w którym pracują architekci i programista." data-en="Coworking in the very centre of Katowice — a quiet, calm office shared by architects and a developer."></p>
-    <p class="price"><strong>500 zł</strong><span data-pl="/ miesiąc · tydzień próbny za darmo" data-en="/ month · one trial week free"></span></p>
-    <a class="cta" href="#kontakt" data-pl="Umów się na oglądanie" data-en="Book a viewing"></a>
+    <div class="hero-text">
+      <p class="eyebrow" data-pl="Katowice · ul. Staromiejska 6" data-en="Katowice · Staromiejska 6"></p>
+      <h1 data-pl="Biurko na wynajem" data-en="A desk for rent"></h1>
+      <p class="lede" data-pl="Coworking w ścisłym centrum Katowic — spokojne, ciche biuro, w którym pracują architekci i programista." data-en="Coworking in the very centre of Katowice — a quiet, calm office shared by architects and a developer."></p>
+      <p class="price"><strong>500 zł</strong><span data-pl="/ miesiąc · tydzień próbny za darmo" data-en="/ month · one trial week free"></span></p>
+      <a class="cta" href="#kontakt" data-pl="Umów się na oglądanie" data-en="Book a viewing"></a>
+    </div>
+
+    <div class="slider" aria-roledescription="carousel">
+      <div class="track">
+        <div class="slide slide-map">
+          <iframe title="Mapa: Staromiejska 6, Katowice" src="https://www.google.com/maps?q=Staromiejska%206,%2040-013%20Katowice&hl=pl&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="slide"><img src="img/foto-3-sm.jpg" width="800" height="1071" alt="Stanowiska pracy przy oknach" fetchpriority="high"></div>
+        <div class="slide"><img src="img/foto-1-sm.jpg" width="800" height="1071" loading="lazy" alt="Wolne biurka"></div>
+        <div class="slide"><img src="img/foto-2-sm.jpg" width="800" height="1071" loading="lazy" alt="Przejście między pokojami"></div>
+        <div class="slide"><img src="img/foto-4-sm.jpg" width="800" height="1067" loading="lazy" alt="Zabytkowe drzwi kamienicy"></div>
+        <div class="slide"><img src="img/foto-5-sm.jpg" width="800" height="1067" loading="lazy" alt="Taras z widokiem na centrum"></div>
+        <div class="slide"><img src="img/foto-6-sm.jpg" width="800" height="1067" loading="lazy" alt="Taras"></div>
+      </div>
+      <button type="button" class="sl-prev" aria-label="Poprzedni slajd">‹</button>
+      <button type="button" class="sl-next" aria-label="Następny slajd">›</button>
+      <div class="dots" aria-hidden="true"></div>
+    </div>
   </section>
 
   <section class="facts" aria-labelledby="facts-h">
@@ -40,7 +59,7 @@
       <li><span class="k">Wi-Fi</span><span class="v" data-pl="internet w biurze" data-en="internet in the office"></span></li>
       <li><span class="k" data-pl="Aneks kuchenny" data-en="Kitchenette"></span><span class="v" data-pl="ekspres do kawy i mikrofalówka" data-en="coffee machine and microwave"></span></li>
       <li><span class="k" data-pl="Ścisłe centrum Katowic" data-en="Dead centre of Katowice"></span><span class="v" data-pl="obok SARP-u — lunche za 32 zł w miłej atmosferze" data-en="next door to SARP — lunches for 32 zł in a nice atmosphere"></span></li>
-      <li><span class="k" data-pl="Biurka stojące" data-en="Standing desks"></span><span class="v" data-pl="możliwość pracy na stojąco" data-en="option to work standing"></span></li>
+      <li><span class="k" data-pl="Opcjonalne Biurka Stojące" data-en="Optional standing desks"></span></li>
       <li><span class="k" data-pl="Aktualny skład" data-en="Current crew"></span><span class="v" data-pl="architekci + programista — spokojna, cicha ekipa" data-en="architects + a developer — a quiet, easy-going crew"></span></li>
     </ul>
   </section>
@@ -59,8 +78,8 @@
 
   <section class="plan" aria-labelledby="plan-h">
     <h2 id="plan-h" data-pl="Rzut biura" data-en="Floor plan"></h2>
-    <p class="note" data-pl="Na zielono zaznaczone wolne stanowiska." data-en="Available desks are marked green."></p>
-    <img src="img/rzut.png" width="1400" height="1456" loading="lazy" alt="Rzut biura: pokój nr 1, pokój nr 2, kuchnia, WC, taras">
+    <p class="note" data-pl="Dwa pokoje, kuchnia, WC i taras." data-en="Two rooms, kitchen, WC and the terrace."></p>
+    <img src="img/rzut.png" width="580" height="580" loading="lazy" alt="Rzut biura: pokój nr 1, pokój nr 2, kuchnia, WC, taras">
   </section>
 
   <section class="where" aria-labelledby="where-h">
@@ -95,5 +114,6 @@
 </div>
 
 <script src="js/app.js"></script>
+<script src="js/slider.js"></script>
 </body>
 </html>
