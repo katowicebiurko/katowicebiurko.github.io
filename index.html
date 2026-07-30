@@ -65,7 +65,7 @@ h1{font-size:clamp(2.6rem,9vw,5.4rem);line-height:1.02}
 .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
   scrollbar-width:none;-ms-overflow-style:none}
 .track::-webkit-scrollbar{display:none}
-.slide{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/5}
+.slide{display:block;flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/5}
 .slide img{width:100%;height:100%;object-fit:cover}
 .slider>button{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:2.4rem;height:2.4rem;
   border:0;border-radius:50%;background:rgba(251,250,247,.9);color:var(--ink);font-size:1.5rem;
@@ -161,6 +161,7 @@ footer{padding:2rem clamp(1.2rem,5vw,4rem) 3rem;max-width:1060px;margin:0 auto;
         <div class="slide"><img src="img/foto-4-sm.jpg" width="800" height="1067" alt="Zabytkowe drzwi kamienicy"></div>
         <div class="slide"><img src="img/foto-5-sm.jpg" width="800" height="1067" alt="Taras z widokiem na centrum"></div>
         <div class="slide"><img src="img/foto-6-sm.jpg" width="800" height="1067" alt="Taras"></div>
+        <a class="slide" href="https://www.google.com/maps/search/?api=1&query=Staromiejska+6,+40-013+Katowice" target="_blank" rel="noopener"><img src="img/mapa-sm.jpg" width="800" height="1000" alt="Mapa: Staromiejska 6, centrum Katowic — otwórz w Mapach Google"></a>
       </div>
       <button type="button" class="sl-prev" aria-label="Poprzedni slajd">‹</button>
       <button type="button" class="sl-next" aria-label="Następny slajd">›</button>
