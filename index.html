@@ -10,7 +10,118 @@
 <meta property="og:image" content="https://katowicebiurko.github.io/img/foto-3.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🪑</text></svg>">
-<link rel="stylesheet" href="css/styles.css?v=3">
+<style>
+:root{
+  --ink:#171614; --muted:#6c665e; --line:#e2ddd4; --bg:#fbfaf7; --sand:#b38b5b; --radius:2px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+h1,h2{font-weight:400;letter-spacing:-.02em;margin:0}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.bar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;padding:.9rem clamp(1.2rem,5vw,4rem);background:rgba(251,250,247,.88);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.brand{font-size:.72rem;letter-spacing:.22em;text-decoration:none}
+.lang{display:flex;align-items:center;gap:.35rem;font-size:.72rem;letter-spacing:.12em;color:var(--muted)}
+.lang button{background:none;border:0;padding:0;font:inherit;color:var(--muted);cursor:pointer}
+.lang button.on{color:var(--ink);border-bottom:1px solid var(--sand)}
+
+main{max-width:1060px;margin:0 auto;padding:0 clamp(1.2rem,5vw,4rem)}
+section{padding:clamp(3.5rem,9vw,7rem) 0;border-bottom:1px solid var(--line)}
+section h2{font-size:clamp(1.4rem,3.4vw,2rem);margin-bottom:1.6rem}
+
+.hero{padding-top:clamp(2.4rem,7vw,5rem);border-bottom:1px solid var(--line);
+  display:grid;gap:clamp(2rem,5vw,3.5rem);align-items:center;grid-template-columns:1fr}
+@media (min-width:900px){.hero{grid-template-columns:1.05fr .95fr}}
+.eyebrow{margin:0 0 1.4rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(2.6rem,9vw,5.4rem);line-height:1.02}
+.lede{max-width:46ch;margin:1.6rem 0 0;color:var(--muted);font-size:clamp(1rem,2vw,1.12rem)}
+.price{display:flex;align-items:baseline;gap:.6rem;margin:2.4rem 0 0;flex-wrap:wrap}
+.price strong{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:400}
+.price span{color:var(--muted);font-size:.95rem}
+.trial,.cta{display:inline-flex;align-items:center;justify-content:center;min-height:2.9rem;
+  padding:0 1.5rem;border-radius:var(--radius);font-size:.88rem;line-height:1.2;letter-spacing:.04em}
+.trial{margin:1rem 0 0;background:#f2e6d5;color:#6a4a22;font-weight:600}
+.cta{margin-top:1rem;background:var(--ink);color:var(--bg);text-decoration:none;transition:background .2s}
+.cta:hover{background:var(--sand)}
+
+.slider{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  background:#f1eee8}
+.track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/5}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slider>button{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:2.4rem;height:2.4rem;
+  border:0;border-radius:50%;background:rgba(251,250,247,.9);color:var(--ink);font-size:1.5rem;
+  line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 .15rem;
+  box-shadow:0 1px 6px rgba(0,0,0,.14)}
+.sl-prev{left:.6rem}
+.sl-next{right:.6rem}
+.slider>button:hover{background:#fff}
+.dots{position:absolute;left:0;right:0;bottom:.7rem;display:flex;justify-content:center;gap:.4rem;z-index:2}
+.dots i{width:6px;height:6px;border-radius:50%;background:rgba(23,22,20,.28)}
+.dots i.on{background:var(--bg);box-shadow:0 0 0 1px rgba(23,22,20,.35)}
+
+.facts ul{list-style:none;margin:0;padding:0;display:grid;gap:1px;background:var(--line);
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));border:1px solid var(--line)}
+.facts li{background:var(--bg);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.facts .k{font-size:1.05rem}
+.facts .v{color:var(--muted);font-size:.9rem;line-height:1.5}
+
+.grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+figure{margin:0}
+figure button{padding:0;border:0;background:none;cursor:zoom-in;display:block;width:100%;
+  overflow:hidden;border-radius:var(--radius)}
+figure img{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .5s ease}
+figure button:hover img{transform:scale(1.03)}
+figcaption{margin-top:.6rem;font-size:.8rem;color:var(--muted)}
+
+.note{margin:0 0 1.4rem;color:var(--muted);font-size:.9rem}
+.plan img{border:1px solid var(--line);background:#fff;padding:clamp(.6rem,2vw,1.6rem);
+  border-radius:var(--radius);max-width:680px;width:100%}
+
+.cols{display:grid;gap:1.6rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  color:var(--muted);max-width:76ch}
+.cols p{margin:0}
+
+.map{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#eee;
+  aspect-ratio:16/9;max-width:720px}
+.map iframe{width:100%;height:100%;border:0;display:block}
+.maplink{display:inline-block;margin-top:1rem;font-size:.85rem;color:var(--muted);text-decoration:none}
+.maplink:hover{color:var(--ink)}
+
+.contact{border-bottom:0}
+.contact h2{max-width:22ch}
+.ways{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin:2rem 0 0}
+.ways .cta{margin-top:0}
+.tel{font-size:1rem;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px}
+
+footer{padding:2rem clamp(1.2rem,5vw,4rem) 3rem;max-width:1060px;margin:0 auto;
+  font-size:.72rem;letter-spacing:.12em;color:var(--muted);border-top:1px solid var(--line)}
+
+.lightbox{position:fixed;inset:0;z-index:50;background:rgba(20,19,17,.94);display:flex;
+  align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:100%;max-height:90vh;object-fit:contain}
+.lightbox button{position:absolute;background:none;border:0;color:#fff;opacity:.7;cursor:pointer;
+  font-size:2.4rem;line-height:1;padding:.6rem}
+.lightbox button:hover{opacity:1}
+.lb-close{top:.6rem;right:1rem;font-size:2.6rem}
+.lb-prev{left:.4rem}
+.lb-next{right:.4rem}
+
+@media (max-width:520px){
+  .facts ul{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
@@ -25,19 +136,16 @@
 
   <section class="hero">
     <div class="hero-text">
-      <p class="eyebrow" data-pl="Katowice · ul. Staromiejska 6" data-en="Katowice · Staromiejska 6"></p>
-      <h1 data-pl="Biurko na wynajem" data-en="A desk for rent"></h1>
-      <p class="lede" data-pl="Coworking w ścisłym centrum Katowic — spokojne, ciche biuro." data-en="Coworking in the very centre of Katowice — a quiet, calm office."></p>
-      <p class="price"><strong>500 zł</strong><span data-pl="/ miesiąc" data-en="/ month"></span></p>
-      <p class="trial" data-pl="Tydzień próbny za darmo" data-en="One trial week free"></p>
-      <a class="cta" href="#kontakt" data-pl="Umów się na oglądanie" data-en="Book a viewing"></a>
+      <p class="eyebrow" data-pl="Katowice · ul. Staromiejska 6" data-en="Katowice · Staromiejska 6">Katowice · ul. Staromiejska 6</p>
+      <h1 data-pl="Biurko na wynajem" data-en="A desk for rent">Biurko na wynajem</h1>
+      <p class="lede" data-pl="Coworking w ścisłym centrum Katowic — spokojne, ciche biuro." data-en="Coworking in the very centre of Katowice — a quiet, calm office.">Coworking w ścisłym centrum Katowic — spokojne, ciche biuro.</p>
+      <p class="price"><strong>500 zł</strong><span data-pl="/ miesiąc" data-en="/ month">/ miesiąc</span></p>
+      <p class="trial" data-pl="Tydzień próbny za darmo" data-en="One trial week free">Tydzień próbny za darmo</p>
+      <a class="cta" href="#kontakt" data-pl="Umów się na oglądanie" data-en="Book a viewing">Umów się na oglądanie</a>
     </div>
 
     <div class="slider" aria-roledescription="carousel">
       <div class="track">
-        <div class="slide slide-map">
-          <iframe title="Mapa: Staromiejska 6, Katowice" src="https://www.google.com/maps?q=Staromiejska%206,%2040-013%20Katowice&hl=pl&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
         <div class="slide"><img src="img/foto-3-sm.jpg" width="800" height="1071" alt="Stanowiska pracy przy oknach" fetchpriority="high"></div>
         <div class="slide"><img src="img/foto-1-sm.jpg" width="800" height="1071" alt="Wolne biurka"></div>
         <div class="slide"><img src="img/foto-2-sm.jpg" width="800" height="1071" alt="Przejście między pokojami"></div>
@@ -52,21 +160,21 @@
   </section>
 
   <section class="facts" aria-labelledby="facts-h">
-    <h2 id="facts-h" class="sr" data-pl="Najważniejsze informacje" data-en="Key facts"></h2>
+    <h2 id="facts-h" class="sr" data-pl="Najważniejsze informacje" data-en="Key facts">Najważniejsze informacje</h2>
     <ul>
-      <li><span class="k">500 zł</span><span class="v" data-pl="miesięcznie za stanowisko" data-en="per desk, per month"></span></li>
-      <li><span class="k" data-pl="7 dni" data-en="7 days"></span><span class="v" data-pl="darmowego okresu próbnego" data-en="of a free trial period"></span></li>
-      <li><span class="k" data-pl="Dostęp 24 h" data-en="24 h access"></span><span class="v" data-pl="pracujesz, kiedy chcesz" data-en="work whenever you want"></span></li>
-      <li><span class="k">Wi-Fi</span><span class="v" data-pl="internet w biurze" data-en="internet in the office"></span></li>
-      <li><span class="k" data-pl="Aneks kuchenny" data-en="Kitchenette"></span><span class="v" data-pl="ekspres do kawy i mikrofalówka" data-en="coffee machine and microwave"></span></li>
-      <li><span class="k" data-pl="Ścisłe centrum Katowic" data-en="Dead centre of Katowice"></span><span class="v" data-pl="obok SARP-u — lunche za 32 zł w miłej atmosferze" data-en="next door to SARP — lunches for 32 zł in a nice atmosphere"></span></li>
-      <li><span class="k" data-pl="Opcjonalne Biurka Stojące" data-en="Optional standing desks"></span></li>
-      <li><span class="k" data-pl="Aktualny skład" data-en="Current crew"></span><span class="v" data-pl="architekci + programista — spokojna, cicha ekipa" data-en="architects + a developer — a quiet, easy-going crew"></span></li>
+      <li><span class="k">500 zł</span><span class="v" data-pl="miesięcznie za stanowisko" data-en="per desk, per month">miesięcznie za stanowisko</span></li>
+      <li><span class="k" data-pl="7 dni" data-en="7 days">7 dni</span><span class="v" data-pl="darmowego okresu próbnego" data-en="of a free trial period">darmowego okresu próbnego</span></li>
+      <li><span class="k" data-pl="Dostęp 24 h" data-en="24 h access">Dostęp 24 h</span><span class="v" data-pl="pracujesz, kiedy chcesz" data-en="work whenever you want">pracujesz, kiedy chcesz</span></li>
+      <li><span class="k">Wi-Fi</span><span class="v" data-pl="internet w biurze" data-en="internet in the office">internet w biurze</span></li>
+      <li><span class="k" data-pl="Aneks kuchenny" data-en="Kitchenette">Aneks kuchenny</span><span class="v" data-pl="ekspres do kawy i mikrofalówka" data-en="coffee machine and microwave">ekspres do kawy i mikrofalówka</span></li>
+      <li><span class="k" data-pl="Ścisłe centrum Katowic" data-en="Dead centre of Katowice">Ścisłe centrum Katowic</span><span class="v" data-pl="obok SARP-u — lunche za 32 zł w miłej atmosferze" data-en="next door to SARP — lunches for 32 zł in a nice atmosphere">obok SARP-u — lunche za 32 zł w miłej atmosferze</span></li>
+      <li><span class="k" data-pl="Opcjonalne Biurka Stojące" data-en="Optional standing desks">Opcjonalne Biurka Stojące</span></li>
+      <li><span class="k" data-pl="Aktualny skład" data-en="Current crew">Aktualny skład</span><span class="v" data-pl="architekci + programista — spokojna, cicha ekipa" data-en="architects + a developer — a quiet, easy-going crew">architekci + programista — spokojna, cicha ekipa</span></li>
     </ul>
   </section>
 
   <section class="gallery" aria-labelledby="gal-h">
-    <h2 id="gal-h" data-pl="Biuro" data-en="The office"></h2>
+    <h2 id="gal-h" data-pl="Biuro" data-en="The office">Biuro</h2>
     <div class="grid">
       <figure><button type="button" data-full="img/foto-3.jpg"><img src="img/foto-3-sm.jpg" width="800" height="1071" loading="lazy" alt="Stanowiska pracy przy oknach"></button></figure>
       <figure><button type="button" data-full="img/foto-1.jpg"><img src="img/foto-1-sm.jpg" width="800" height="1071" loading="lazy" alt="Wolne biurka"></button></figure>
@@ -78,23 +186,23 @@
   </section>
 
   <section class="plan" aria-labelledby="plan-h">
-    <h2 id="plan-h" data-pl="Rzut biura" data-en="Floor plan"></h2>
-    <p class="note" data-pl="Dwa pokoje, kuchnia, WC i taras." data-en="Two rooms, kitchen, WC and the terrace."></p>
+    <h2 id="plan-h" data-pl="Rzut biura" data-en="Floor plan">Rzut biura</h2>
+    <p class="note" data-pl="Dwa pokoje, kuchnia, WC i taras." data-en="Two rooms, kitchen, WC and the terrace.">Dwa pokoje, kuchnia, WC i taras.</p>
     <img src="img/rzut.png" width="580" height="580" loading="lazy" alt="Rzut biura: pokój nr 1, pokój nr 2, kuchnia, WC, taras">
   </section>
 
   <section class="where" aria-labelledby="where-h">
-    <h2 id="where-h" data-pl="Lokalizacja" data-en="Location"></h2>
+    <h2 id="where-h" data-pl="Lokalizacja" data-en="Location">Lokalizacja</h2>
     <p class="note">ul. Staromiejska 6, 40-013 Katowice</p>
     <div class="map">
       <iframe title="Mapa: Staromiejska 6, Katowice" src="https://www.google.com/maps?q=Staromiejska%206,%2040-013%20Katowice&hl=pl&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Staromiejska+6,+40-013+Katowice" target="_blank" rel="noopener" data-pl="Otwórz w Mapach Google →" data-en="Open in Google Maps →"></a>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Staromiejska+6,+40-013+Katowice" target="_blank" rel="noopener" data-pl="Otwórz w Mapach Google →" data-en="Open in Google Maps →">Otwórz w Mapach Google →</a>
   </section>
 
   <section class="contact" id="kontakt" aria-labelledby="kontakt-h">
-    <h2 id="kontakt-h" data-pl="Zapraszamy na wizytę" data-en="Come and see the place"></h2>
-    <p class="lede" data-pl="Napisz albo zadzwoń — pierwszy tydzień jest za darmo." data-en="Write or call — the first week is free."></p>
+    <h2 id="kontakt-h" data-pl="Zapraszamy na wizytę" data-en="Come and see the place">Zapraszamy na wizytę</h2>
+    <p class="lede" data-pl="Napisz albo zadzwoń — pierwszy tydzień jest za darmo." data-en="Write or call — the first week is free.">Napisz albo zadzwoń — pierwszy tydzień jest za darmo.</p>
     <p class="ways">
       <a class="cta" href="mailto:szbubak@gmail.com?subject=Biurko%20-%20Staromiejska%206">szbubak@gmail.com</a>
       <a class="tel" href="tel:+48795768014">Szymon · +48 795 768 014</a>
