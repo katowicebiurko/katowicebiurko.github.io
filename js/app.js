@@ -8,7 +8,7 @@ function setLang(lang) {
   nodes.forEach(n => {
     const text = n.dataset[lang];
     if (n.tagName === 'META') n.setAttribute('content', text);
-    else n.textContent = text;
+    else n.innerHTML = text;
   });
   buttons.forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
   localStorage.setItem(KEY, lang);
