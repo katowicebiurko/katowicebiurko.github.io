@@ -1,0 +1,12 @@
+# Google Ads credentials — never commit (this repo is public + served by GitHub Pages)
+google-ads.yaml
+client_secret*.json
+*.refresh_token
+.env
+
+# gaarf CSV/JSON output
+ads/out/*
+!ads/out/.gitkeep
+
+# local agent session state
+.claude/
