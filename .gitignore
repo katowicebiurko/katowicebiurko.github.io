@@ -10,3 +10,6 @@ ads/out/*
 
 # local agent session state
 .claude/
+
+# test dependencies
+node_modules/
